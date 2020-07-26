@@ -36,7 +36,7 @@ app.get('/api/ubuntu1/:min/:max', async function (req, res) {
     validateParams(min, max, sentences.length);
     const random = Math.floor(Math.random() * ((max - min)) + 1);
     const sentence = sentences[random];
-    await res.json(createLoggerSuccess(req,sentence,));
+    await res.json(createLoggerSuccess(req,sentence,elapsed));
   } catch (e) {
     await res.json(createLogErrorParams(req, e.cod, e.message,elapsed));
   }
